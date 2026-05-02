@@ -7,12 +7,12 @@ function App() {
   const [date, setDate] = useState("");
 
   const fetchTodos = () => {
-    axios.get("http://localhost:5000/get")
+    axios.get("https://ample-motivation-production-a5c2.up.railway.app/get")
       .then(res => setTodos(res.data));
   };
 
   const toggleTodo = (id) => {
-    axios.put(`http://localhost:5000/toggle/${id}`)
+    axios.put(`https://ample-motivation-production-a5c2.up.railway.app/toggle/${id}`)
       .then(() => fetchTodos());
   };
 
@@ -23,7 +23,7 @@ function App() {
   const addTodo = () => {
     if (!text || !date) return;
 
-    axios.post("http://localhost:5000/add", { text, date })
+    axios.post("https://ample-motivation-production-a5c2.up.railway.app/add", { text, date })
       .then(() => {
         setText("");
         setDate("");
@@ -32,7 +32,7 @@ function App() {
   };
 
   const deleteTodo = (id) => {
-    axios.delete(`http://localhost:5000/delete/${id}`)
+    axios.delete(`https://ample-motivation-production-a5c2.up.railway.app/delete/${id}`)
       .then(() => fetchTodos());
   };
 
